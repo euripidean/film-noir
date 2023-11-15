@@ -2,45 +2,12 @@
   <head>
     <title>Film Noir CSS Framework</title>
 
-    <link rel="stylesheet" href="filmnoir.css" id="dark-stylesheet" />
-    <link rel="stylesheet" href="filmblanc.css" id="light-stylesheet" />
-
-    <!-- Add this script in the head section -->
-    <!-- Add this script in the head section -->
-    <script>
-      // Function to toggle between dark and light mode
-      function toggleDarkLightMode() {
-        const darkStylesheet = document.getElementById("dark-stylesheet");
-        const lightStylesheet = document.getElementById("light-stylesheet");
-
-        if (darkStylesheet.disabled) {
-          darkStylesheet.removeAttribute("disabled");
-          lightStylesheet.disabled = true;
-          // Save the user's preference to localStorage
-          localStorage.setItem("theme", "dark");
-        } else {
-          lightStylesheet.removeAttribute("disabled");
-          darkStylesheet.disabled = true;
-          // Save the user's preference to localStorage
-          localStorage.setItem("theme", "light");
-        }
-      }
-
-      // Event listener for the toggle button
-      document
-        .getElementById("theme-toggle")
-        .addEventListener("click", toggleDarkLightMode);
-
-      // Check the initial mode
-      const userPreference = localStorage.getItem("theme");
-      if (userPreference === "dark") {
-        document.getElementById("dark-stylesheet").removeAttribute("disabled");
-        document.getElementById("light-stylesheet").disabled = true;
-      } else {
-        document.getElementById("light-stylesheet").removeAttribute("disabled");
-        document.getElementById("dark-stylesheet").disabled = true;
-      }
-    </script>
+    <link rel="stylesheet" href="./styles/film-noir.css" id="dark-stylesheet" />
+    <link
+      rel="stylesheet"
+      href="./styles/film-blanche.css"
+      id="light-stylesheet"
+    />
   </head>
   <!-- Page Wraper -->
   <body class="dark">

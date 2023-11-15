@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "Noir_Regular";
+  src: url("../fonts/Noir_regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Noir_Medium";
+  src: url("../fonts/Noir_medium.otf") format("opentype");
+}
+// Default Colour Scheme
+$noir-black: #0e1111;
+$noir-grey-1: #232b2b;
+$noir-grey-2: #353839;
+$noir-grey-3: #4c4f4f;
+$noir-grey-4: #5e6161;
+$noir-grey-5: #6e7171;
+$noir-highlight: #a3a6a6;
+$noir-white: #e8e8e8;
+
+// Default Font Sizes
+$base-font-size: 18px;
+
+// Spacing and Padding
+$default-line-height: 1.5;
+$default-padding: 1rem;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  // set background color as gradient from noir-black to noir-highlight
+  background: linear-gradient(to bottom, $noir-black, $noir-grey-4);
+}
+
+body,
+html {
+  color: $noir-white;
+  margin: 0 auto;
+  font-family: "Noir_Medium", sans-serif;
+}
+
+code {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: row-wrap;
+  background-color: $noir-highlight;
+  color: $noir-grey-1;
+  width: 50%;
+  margin: 0 auto;
+  padding: $default-padding;
+  // add box shadow
+  box-shadow: 0 0 10px 0 $noir-grey-5;
+}
+
+code::before {
+  content: "HTML Example";
+  font-weight: bold;
+}
+
+.navbar > * {
+  @include flexCenter(row);
+  background-color: $noir-grey-1;
+  width: 100%;
+}
+
+.navbar ul {
+  @include flexCenter(row);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// first child of navbar ul
+.navbar ul li:first-child {
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}

@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Noir_Regular";
+  src: url("../fonts/Noir_regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Noir_Medium";
+  src: url("../fonts/Noir_medium.otf") format("opentype");
+}
+body {
+  background: linear-gradient(to bottom, #0e1111, #5e6161);
+}
+
+body,
+html {
+  color: #e8e8e8;
+  margin: 0 auto;
+  font-family: "Noir_Medium", sans-serif;
+}
+
+code {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: row-wrap;
+  background-color: #a3a6a6;
+  color: #232b2b;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  box-shadow: 0 0 10px 0 #6e7171;
+}
+
+code::before {
+  content: "HTML Example";
+  font-weight: bold;
+}
+
+.navbar > * {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #232b2b;
+  width: 100%;
+}
+
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li:first-child {
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}/*# sourceMappingURL=film-noir.css.map */
