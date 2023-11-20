@@ -7,14 +7,53 @@
   src: url("../fonts/Noir_medium.otf") format("opentype");
 }
 body {
-  background: linear-gradient(to bottom, #0e1111, #5e6161);
+  background: linear-gradient(to bottom, #0e1111, #353839);
 }
 
 body,
 html {
+  width: 95%;
   color: #e8e8e8;
   margin: 0 auto;
+  font-family: "Noir_Regular", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Noir_Medium", sans-serif;
+  font-kerning: 5px;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 1rem 0;
+  padding: 0;
+  text-shadow: 0 0 15px #6e7171;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-family: "Noir_Medium", sans-serif;
+  font-size: 1.25rem;
 }
 
 code {
@@ -27,6 +66,7 @@ code {
   margin: 0 auto;
   padding: 1rem;
   box-shadow: 0 0 10px 0 #6e7171;
+  overflow: auto;
 }
 
 code::before {
@@ -34,13 +74,14 @@ code::before {
   font-weight: bold;
 }
 
-.navbar > * {
+.navbar {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #232b2b;
   width: 100%;
+  padding: 1rem;
+  font-family: "Noir_Medium", sans-serif;
 }
 
 .navbar ul {
@@ -48,20 +89,61 @@ code::before {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  justify-content: space-around;
+  border-top: 1px solid #6e7171;
+  border-bottom: 1px solid #6e7171;
 }
 
-.navbar ul li:first-child {
-  width: 100%;
+.navbar ul:last-child {
+  justify-self: flex-end;
+}
+
+.navbar li {
+  margin: 1rem;
+}
+
+.navbar ul li a {
+  color: #e8e8e8;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navbar ul li a:hover {
+  color: #b0903d;
 }
 
 .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  font-size: 6rem;
+  text-shadow: 0 0 15px #6e7171;
+  margin-top: 2rem;
+  margin-bottom: 0;
 }
 
-h1 {
-  font-size: 3rem;
-  margin: 0;
+section:nth-child(odd) {
+  border: 15px solid transparent; /* control the offset of the lines */
+  outline: 1px solid #e8e8e8; /* adjust the 2px here */
+  outline-offset: -10px; /* control the offset of the rectangle */
+  background: linear-gradient(#e8e8e8 0 0) top, linear-gradient(#e8e8e8 0 0) left, linear-gradient(#e8e8e8 0 0) bottom, linear-gradient(#e8e8e8 0 0) right;
+  background-size: 200% 1px, 1px 200%; /* adjust the 2px here */
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  padding: 1rem;
+}
+
+.page-footer {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.page-footer ul {
+  list-style: none;
+  padding: 0;
 }/*# sourceMappingURL=film-noir.css.map */
