@@ -268,6 +268,26 @@ textarea {
   box-shadow: 0 0 10px 0 $noir-grey-5;
 }
 
+// Remove default browser styles
+form input[type="checkbox"],
+form input[type="radio"] {
+  display: none;
+}
+
+.checkbox::before {
+  content: "";
+  display: inline-block;
+  font-size: 1.5rem;
+  border: 1px solid $noir-white;
+  margin-right: $default-spacing;
+}
+
+// checked checkboxes and radio buttons
+form input[type="checkbox"]:checked,
+form input[type="radio"]:checked {
+  background: $deco-gold;
+}
+
 form input:focus,
 textarea:focus {
   border: 1px solid $deco-gold;
