@@ -1,12 +1,13 @@
 <html>
   <head>
     <title>Film Noir CSS Framework</title>
-
-    <link rel="stylesheet" href="./styles/film-base.css" id="dark-stylesheet" />
+    <link rel="stylesheet" href="./styles/film-base.css" />
+    <link rel="stylesheet" href="./styles/film-noir.css" id="noir-theme" />
     <link
       rel="stylesheet"
       href="./styles/film-blanche.css"
-      id="light-stylesheet"
+      id="blanche-theme"
+      disabled
     />
   </head>
   <!-- Page Wraper -->
@@ -28,6 +29,7 @@
 
       <ul>
         <li><a href="link/to/your/framework/repo">GitHub</a></li>
+        <li><a href="#blanche" id="theme-link">Film Blanche</a></li>
       </ul>
     </div>
 
@@ -155,6 +157,15 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
       <!-- Form Styles -->
       <section>
         <h2>Forms and controls</h2>
+        <p>
+          Forms can have the class 'bordered' applied to them to add an art-deco
+          border. Simply omit the class if you don't want the border.
+        </p>
+        <p>
+          Form labels are left aligned and larger than paragraph text. Focus on
+          inputs is shown by applying the gold-deco haze.
+        </p>
+        <p>Placeholder text is grey, and input text is white.</p>
         <form class="bordered">
           <label>
             <span>Text:</span>
@@ -219,82 +230,31 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
       <section id="colors">
         <h1>Colors</h1>
         <div class="color-grid">
-          <div style="background-color: var(--color-background)">
-            --color-background
+          <div style="background-color: var(--background)">--background</div>
+          <div style="background-color: var(--text); color: var(--background)">
+            --text
+          </div>
+          <div style="background-color: var(--shade-1); color: var(--text)">
+            --shade-1
+          </div>
+          <div style="background-color: var(--shade-2); color: var(--text)">
+            --shade-2
+          </div>
+          <div style="background-color: var(--shade-3); color: var(--text)">
+            --shade-3
+          </div>
+          <div style="background-color: var(--shade-4); color: var(--text)">
+            --shade-4
           </div>
           <div
-            style="
-              background-color: var(--color-foreground);
-              color: var(--color-background);
-            "
+            style="background-color: var(--highlight); color: var(--background)"
           >
-            --color-foreground
+            --highlight
           </div>
           <div
-            style="
-              background-color: var(--color-dark);
-              color: var(--color-background);
-            "
+            style="background-color: var(--deco-gold); color: var(--background)"
           >
-            --color-dark
-          </div>
-
-          <div style="background-color: var(--color-light)">--color-light</div>
-
-          <div style="background-color: var(--color-md-light)">
-            --color-md-light
-          </div>
-
-          <div
-            style="
-              background-color: var(--color-dark);
-              color: var(--color-background);
-            "
-          >
-            --color-md-dark
-          </div>
-
-          <div
-            style="
-              background-color: var(--color-primary);
-              color: var(--color-background);
-            "
-          >
-            --color-primary
-          </div>
-
-          <div
-            style="
-              background-color: var(--color-info);
-              color: var(--color-background);
-            "
-          >
-            --color-info
-          </div>
-
-          <div
-            style="
-              background-color: var(--color-success);
-              color: var(--color-background);
-            "
-          >
-            --color-success
-          </div>
-
-          <div
-            style="
-              background-color: var(--color-danger);
-              color: var(--color-background);
-            "
-          >
-            --color-danger
-          </div>
-
-          <div style="background-color: var(--color-callout)">
-            --color-callout
-          </div>
-          <div style="background-color: var(--color-lightest)">
-            --color-lightest
+            --deco-gold
           </div>
         </div>
       </section>
@@ -385,5 +345,25 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
         <li><a href="https://github.com/euripidean/film-noir">GitHub</a></li>
       </ul>
     </div>
+    <script>
+      const themeLink = document.getElementById("theme-link");
+      const noirTheme = document.getElementById("noir-theme");
+      const blancheTheme = document.getElementById("blanche-theme");
+      const title = document.querySelector("h1.title");
+
+      themeLink.addEventListener("click", () => {
+        if (noirTheme.disabled) {
+          noirTheme.disabled = false;
+          blancheTheme.disabled = true;
+          themeLink.innerText = "Film Blanche";
+          title.innerText = "Film Noir";
+        } else {
+          noirTheme.disabled = true;
+          blancheTheme.disabled = false;
+          themeLink.innerText = "Film Noir";
+          title.innerText = "Film Blanche";
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,1 +1,11 @@
-/*# sourceMappingURL=film-noir.css.map */
+:root {
+  --background: #0e1111;
+  --shade-1: #232b2b;
+  --shade-2: #353839;
+  --shade-3: #4c4f4f;
+  --shade-4: #5e6161;
+  --haze: #6e7171;
+  --highlight: #a3a6a6;
+  --text: #e8e8e8;
+  --deco-gold: #b0903d;
+}/*# sourceMappingURL=film-noir.css.map */

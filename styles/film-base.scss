@@ -7,19 +7,9 @@
   font-family: "Noir_Medium";
   src: url("../fonts/Noir_medium.otf") format("opentype");
 }
-// Default Colour Scheme
-$noir-black: #0e1111; // background
-$noir-grey-1: #232b2b;
-$noir-grey-2: #353839; // gradient
-$noir-grey-3: #4c4f4f;
-$noir-grey-4: #5e6161;
-$noir-grey-5: #6e7171; // box shadow haze
-$noir-highlight: #a3a6a6; //highlight
-$noir-white: #e8e8e8; // text
-$deco-gold: #b0903d; // deco
 
 // Default Font Sizes
-$base-font-size: 18px;
+$base-font-size: 20px;
 
 // Default Font Family
 $default-font-family: "Noir_Regular", sans-serif, -apple-system,
@@ -28,8 +18,6 @@ $default-font-family: "Noir_Regular", sans-serif, -apple-system,
 $font-family-heading: "Noir_Medium", sans-serif, -apple-system,
   BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
   "Helvetica Neue", sans-serif;
-
-// Form Element Styling
 
 // Spacing and Padding
 $default-line-height: 1.5;
@@ -40,6 +28,7 @@ $default-spacing: 1rem;
   flex-direction: $direction;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 @mixin grid($columns) {
@@ -49,14 +38,13 @@ $default-spacing: 1rem;
 }
 
 body {
-  // set background color as gradient from noir-black to noir-highlight
-  background: linear-gradient(to bottom, $noir-black, $noir-grey-2);
+  background: linear-gradient(to bottom, var(--background), var(--shade-3));
 }
 
 body,
 html {
   width: 95%;
-  color: $noir-white;
+  color: var(--text);
   margin: 0 auto;
   font-family: $default-font-family;
 }
@@ -69,13 +57,14 @@ h5,
 h6 {
   font-family: $font-family-heading;
   font-kerning: 5px;
+  margin: $default-spacing;
 }
 
 h1 {
   font-size: 4rem;
-  margin: $default-spacing 0;
+  margin: $default-spacing;
   padding: 0;
-  text-shadow: 0 0 50px $noir-grey-5;
+  text-shadow: 0 0 50px var(--haze);
   & .no-haze {
     text-shadow: none;
   }
@@ -101,6 +90,11 @@ h6 {
   font-size: 1.25rem;
 }
 
+p {
+  font-size: 1.25rem;
+  padding: $default-spacing;
+}
+
 strong {
   font-family: $font-family-heading;
 }
@@ -109,12 +103,12 @@ code {
   display: flex;
   flex-direction: column;
   flex-wrap: row-wrap;
-  background-color: $noir-highlight;
-  color: $noir-grey-1;
+  background-color: var(--highlight);
+  color: var(--shade-1);
   width: 50%;
   margin: 0 auto;
   padding: $default-spacing;
-  box-shadow: 0 0 10px 0 $noir-grey-5;
+  box-shadow: 0 0 10px 0 var(--haze);
   overflow: auto;
 }
 
@@ -124,25 +118,24 @@ code::before {
 }
 
 a {
-  color: $deco-gold;
-  text-decoration: 1px underline $deco-gold;
+  color: var(--deco-gold);
+  text-decoration: 1px underline var(--deco-gold);
   text-underline-offset: 5px;
   text-underline-position: below;
 }
 
 a:hover {
-  color: $noir-white;
-  text-decoration: 1px underline $noir-white;
+  color: var(--text);
+  text-decoration: 1px underline var(--text);
 }
 
 a:visited {
-  color: $noir-highlight;
-  text-decoration: 1px underline $noir-highlight;
+  color: var(--highlight);
+  text-decoration: 1px underline var(--highlight);
 }
 
 .navbar {
   @include flexCenter(row);
-  width: 95%;
   padding: $default-spacing;
   font-family: $font-family-heading;
 }
@@ -152,48 +145,58 @@ a:visited {
   width: 100%;
   list-style: none;
   justify-content: space-around;
-  border-top: 1px solid $noir-grey-5;
-  border-bottom: 1px solid $noir-grey-5;
+  border-top: 1px solid var(--highlight);
+  border-bottom: 1px solid var(--highlight);
 }
 
 .navbar ul:last-child {
-  justify-self: flex-end;
+  justify-content: flex-end;
+  border: none;
 }
+
 .navbar li {
   margin: $default-spacing;
 }
 
 .navbar ul li a {
-  color: $noir-white;
+  color: var(--text);
   text-decoration: none;
   text-transform: uppercase;
 }
 
 .navbar ul li a:hover {
-  color: $deco-gold;
+  color: var(--deco-gold);
 }
 
 .title {
   @include flexCenter(column);
   width: 100%;
   font-size: 6rem;
-  text-shadow: 0 0 15px $noir-grey-5;
+  text-shadow: 0 0 15px var(--shade-4);
   margin-top: calc($default-spacing * 2);
   margin-bottom: 0;
+}
+
+#colors {
+  margin-bottom: calc($default-spacing * 6);
 }
 
 .color-grid {
   @include grid(5);
 }
 
+.color-grid div {
+  padding: $default-spacing;
+}
+
 .bordered {
   border: 15px solid transparent;
-  outline: 1px solid $noir-white;
+  outline: 1px solid var(--text);
   outline-offset: -10px;
-  background: linear-gradient($noir-white 0 0) top,
-    linear-gradient($noir-white 0 0) left,
-    linear-gradient($noir-white 0 0) bottom,
-    linear-gradient($noir-white 0 0) right;
+  background: linear-gradient(var(--text) 0 0) top,
+    linear-gradient(var(--text) 0 0) left,
+    linear-gradient(var(--text) 0 0) bottom,
+    linear-gradient(var(--text) 0 0) right;
   background-size: 200% 1px, 1px 200%;
   background-origin: padding-box;
   background-repeat: no-repeat;
@@ -214,40 +217,40 @@ a:visited {
 button {
   background: transparent;
   outline: none;
-  border: 1px solid $noir-white;
+  border: 1px solid var(--text);
   padding: calc($default-spacing / 1.5);
-  color: $noir-white;
+  color: var(--text);
   font-family: "Noir_Medium", sans-serif;
   text-transform: uppercase;
-  box-shadow: 0 0 10px 0 $noir-grey-5;
+  box-shadow: 0 0 10px 0 var(--shade-5);
 }
 
 .danger {
-  border: 1px solid $deco-gold;
-  color: $deco-gold;
-  box-shadow: 0 0 10px 0 $deco-gold;
+  border: 1px solid var(--deco-gold);
+  color: var(--deco-gold);
+  box-shadow: 0 0 10px 0 var(--deco-gold);
 }
 
 .action {
-  background-color: $noir-white;
-  color: $noir-black;
-  box-shadow: 0 0 10px 0 $noir-grey-5;
+  background-color: var(--text);
+  color: var(--background);
+  box-shadow: 0 0 10px 0 var(--shade-5);
 }
 
 button:hover {
-  background: $noir-white;
-  color: $noir-black;
+  background: var(--text);
+  color: var(--background);
   cursor: pointer;
 }
 
 button.danger:hover {
-  background: $deco-gold;
-  color: $noir-black;
+  background: var(--deco-gold);
+  color: var(--background);
 }
 
 button.action:hover {
-  background: $noir-black;
-  color: $noir-white;
+  background: var(--background);
+  color: var(--text);
 }
 
 form {
@@ -259,13 +262,13 @@ textarea {
   width: 100%;
   margin: $default-spacing 0;
   padding: $default-spacing;
-  border: 1px solid $noir-white;
+  border: 1px solid var(--text);
   background: transparent;
-  color: $noir-white;
+  color: var(--text);
   font-family: $default-font-family;
   font-size: 1.25rem;
   outline: none;
-  box-shadow: 0 0 10px 0 $noir-grey-5;
+  box-shadow: 0 0 10px 0 var(--shade-4);
 }
 
 // Remove default browser styles
@@ -278,19 +281,19 @@ form input[type="radio"] {
   content: "";
   display: inline-block;
   font-size: 1.5rem;
-  border: 1px solid $noir-white;
+  border: 1px solid var(--text);
   margin-right: $default-spacing;
 }
 
 // checked checkboxes and radio buttons
 form input[type="checkbox"]:checked,
 form input[type="radio"]:checked {
-  background: $deco-gold;
+  background: var(--deco-gold);
 }
 
 form input:focus,
 textarea:focus {
-  border: 1px solid $deco-gold;
+  border: 1px solid var(--deco-gold);
 }
 
 form label {
