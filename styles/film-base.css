@@ -33,7 +33,7 @@ h1 {
   font-size: 4rem;
   margin: 1rem;
   padding: 0;
-  text-shadow: 0 0 50px var(--haze);
+  text-shadow: 0 0 15px var(--haze);
 }
 h1 .no-haze {
   text-shadow: none;
@@ -61,7 +61,12 @@ h6 {
 
 p {
   font-size: 1.25rem;
+  line-height: 1.5;
   padding: 1rem;
+}
+
+.center {
+  text-align: center;
 }
 
 strong {
@@ -84,6 +89,10 @@ code {
 code::before {
   content: "HTML Example";
   font-weight: bold;
+}
+
+section {
+  margin-bottom: 2rem;
 }
 
 a {
@@ -129,9 +138,18 @@ a:visited {
   border-bottom: 1px solid var(--highlight);
 }
 
-.navbar ul:last-child {
+.navbar .right {
   justify-content: flex-end;
   border: none;
+}
+
+.navbar .left {
+  justify-content: flex-start;
+  border: none;
+}
+
+.navbar ul:last-child li {
+  margin: 0.5rem;
 }
 
 .navbar li {
@@ -156,9 +174,12 @@ a:visited {
   flex-wrap: wrap;
   width: 100%;
   font-size: 6rem;
-  text-shadow: 0 0 15px var(--shade-4);
+  text-shadow: 0 0 55px var(--haze);
   margin-top: 2rem;
   margin-bottom: 0;
+}
+.title .no-haze {
+  text-shadow: none;
 }
 
 #colors {
@@ -167,8 +188,9 @@ a:visited {
 
 .color-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
+  padding: 1rem;
 }
 
 .color-grid div {
@@ -176,36 +198,29 @@ a:visited {
 }
 
 .bordered {
-  border: 15px solid transparent;
+  border: calc(1rem + 5px) solid transparent;
   outline: 1px solid var(--text);
-  outline-offset: -10px;
-  background: linear-gradient(var(--text) 0 0) top, linear-gradient(var(--text) 0 0) left, linear-gradient(var(--text) 0 0) bottom, linear-gradient(var(--text) 0 0) right;
+  outline-offset: -1rem;
   background-size: 200% 1px, 1px 200%;
   background-origin: padding-box;
   background-repeat: no-repeat;
   padding: 1rem;
-}
-
-.page-footer {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.page-footer ul {
-  list-style: none;
-  padding: 0;
+  background: linear-gradient(var(--text) 0 0) top, linear-gradient(var(--text) 0 0) left, linear-gradient(var(--text) 0 0) bottom, linear-gradient(var(--text) 0 0) right, none;
+  background-size: 200% 1px, 1px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
 }
 
 button {
   background: transparent;
   outline: none;
   border: 1px solid var(--text);
+  font-size: 1.25em;
   padding: 0.6666666667rem;
   color: var(--text);
   font-family: "Noir_Medium", sans-serif;
   text-transform: uppercase;
-  box-shadow: 0 0 10px 0 var(--shade-5);
+  box-shadow: 0 0 10px 0 var(--haze);
 }
 
 .danger {
@@ -217,7 +232,7 @@ button {
 .action {
   background-color: var(--text);
   color: var(--background);
-  box-shadow: 0 0 10px 0 var(--shade-5);
+  box-shadow: 0 0 10px 0 var(--haze);
 }
 
 button:hover {
@@ -237,7 +252,28 @@ button.action:hover {
 }
 
 form {
+  border: calc(1rem + 5px) solid transparent;
+  outline: 1px solid var(--text);
+  outline-offset: -1rem;
+  background-size: 200% 1px, 1px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
   padding: 1rem;
+  background: linear-gradient(var(--text) 0 0) top, linear-gradient(var(--text) 0 0) left, linear-gradient(var(--text) 0 0) bottom, linear-gradient(var(--text) 0 0) right, var(--background);
+  background-size: 200% 1px, 1px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  padding: 1rem;
+}
+
+form .no-border {
+  padding: 1rem;
+}
+
+form button {
+  margin: 0 auto;
+  display: block;
+  width: 50%;
 }
 
 form input,
@@ -280,4 +316,20 @@ textarea:focus {
 form label {
   font-size: 1.5rem;
   margin: 1rem 0;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: 1rem;
 }/*# sourceMappingURL=film-base.css.map */

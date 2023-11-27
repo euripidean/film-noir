@@ -23,6 +23,23 @@ $font-family-heading: "Noir_Medium", sans-serif, -apple-system,
 $default-line-height: 1.5;
 $default-spacing: 1rem;
 
+@mixin borderBackground($backgroundColor: var(--background)) {
+  border: calc($default-spacing + 5px) solid transparent;
+  outline: 1px solid var(--text);
+  outline-offset: -$default-spacing;
+  background-size: 200% 1px, 1px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+  padding: $default-spacing;
+  background: linear-gradient(var(--text) 0 0) top,
+    linear-gradient(var(--text) 0 0) left,
+    linear-gradient(var(--text) 0 0) bottom,
+    linear-gradient(var(--text) 0 0) right, #{$backgroundColor}; // Set background color here
+  background-size: 200% 1px, 1px 200%;
+  background-origin: padding-box;
+  background-repeat: no-repeat;
+}
+
 @mixin flexCenter($direction) {
   display: flex;
   flex-direction: $direction;
@@ -64,7 +81,7 @@ h1 {
   font-size: 4rem;
   margin: $default-spacing;
   padding: 0;
-  text-shadow: 0 0 50px var(--haze);
+  text-shadow: 0 0 15px var(--haze);
   & .no-haze {
     text-shadow: none;
   }
@@ -92,7 +109,12 @@ h6 {
 
 p {
   font-size: 1.25rem;
+  line-height: 1.5;
   padding: $default-spacing;
+}
+
+.center {
+  text-align: center;
 }
 
 strong {
@@ -115,6 +137,10 @@ code {
 code::before {
   content: "HTML Example";
   font-weight: bold;
+}
+
+section {
+  margin-bottom: calc($default-spacing * 2);
 }
 
 a {
@@ -149,9 +175,18 @@ a:visited {
   border-bottom: 1px solid var(--highlight);
 }
 
-.navbar ul:last-child {
+.navbar .right {
   justify-content: flex-end;
   border: none;
+}
+
+.navbar .left {
+  justify-content: flex-start;
+  border: none;
+}
+
+.navbar ul:last-child li {
+  margin: calc($default-spacing / 2);
 }
 
 .navbar li {
@@ -172,9 +207,12 @@ a:visited {
   @include flexCenter(column);
   width: 100%;
   font-size: 6rem;
-  text-shadow: 0 0 15px var(--shade-4);
+  text-shadow: 0 0 55px var(--haze);
   margin-top: calc($default-spacing * 2);
   margin-bottom: 0;
+  & .no-haze {
+    text-shadow: none;
+  }
 }
 
 #colors {
@@ -182,7 +220,8 @@ a:visited {
 }
 
 .color-grid {
-  @include grid(5);
+  @include grid(4);
+  padding: $default-spacing;
 }
 
 .color-grid div {
@@ -190,39 +229,19 @@ a:visited {
 }
 
 .bordered {
-  border: 15px solid transparent;
-  outline: 1px solid var(--text);
-  outline-offset: -10px;
-  background: linear-gradient(var(--text) 0 0) top,
-    linear-gradient(var(--text) 0 0) left,
-    linear-gradient(var(--text) 0 0) bottom,
-    linear-gradient(var(--text) 0 0) right;
-  background-size: 200% 1px, 1px 200%;
-  background-origin: padding-box;
-  background-repeat: no-repeat;
-  padding: $default-spacing;
-}
-
-.page-footer {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.page-footer ul {
-  list-style: none;
-  padding: 0;
+  @include borderBackground(none);
 }
 
 button {
   background: transparent;
   outline: none;
   border: 1px solid var(--text);
+  font-size: 1.25em;
   padding: calc($default-spacing / 1.5);
   color: var(--text);
   font-family: "Noir_Medium", sans-serif;
   text-transform: uppercase;
-  box-shadow: 0 0 10px 0 var(--shade-5);
+  box-shadow: 0 0 10px 0 var(--haze);
 }
 
 .danger {
@@ -234,7 +253,7 @@ button {
 .action {
   background-color: var(--text);
   color: var(--background);
-  box-shadow: 0 0 10px 0 var(--shade-5);
+  box-shadow: 0 0 10px 0 var(--haze);
 }
 
 button:hover {
@@ -254,7 +273,19 @@ button.action:hover {
 }
 
 form {
+  @include borderBackground(var(--background));
   padding: $default-spacing;
+}
+
+form .no-border {
+  padding: $default-spacing;
+}
+
+// center the form submit button
+form button {
+  margin: 0 auto;
+  display: block;
+  width: 50%;
 }
 
 form input,
@@ -299,4 +330,18 @@ textarea:focus {
 form label {
   font-size: 1.5rem;
   margin: $default-spacing 0;
+}
+
+footer {
+  @include grid(3);
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: $default-spacing;
 }
