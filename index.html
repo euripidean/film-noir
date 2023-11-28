@@ -209,11 +209,6 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
           background the form is placed.
         </p>
         <p>You can disable both the border and the background colour by applying the 'no-border' class.</p>
-        <p>
-          Form labels are left aligned and larger than paragraph text. Focus on
-          inputs is shown by applying the gold-deco haze.
-        </p>
-        <p>Placeholder text is grey, and input text is white in noir theme, then the input text is black in blanche theme.</p>
         <form>
           <label>
             <span>Text:</span>
@@ -236,24 +231,40 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
           </label>
           <button class="action">Submit</button>
 
-          <div>
+          <div class="form-control">
             <label>
-              <span>Checkbox</span>
+              Checkbox
               <input type="checkbox" />
-              <div class="checkbox">
+            </label>
+            </div>
+
+          <div class="form-control">
+            <label>
+              Radio
+              <input type="radio" name="radio" />
+              <div class="radio">
                 <div></div>
               </div>
             </label>
           </div>
 
-          <label class="control-checkbox"
-            >One
-            <input type="checkbox" checked="checked" />
-            <span></span>
-          </label>
-        </form>
+          <div class="form-control">
+            <label>
+              Select
+              <select>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </label>
+            </div>
+          </form>
 
         <h3>Input and label</h3>
+        <p>
+          Form labels are left aligned and larger than paragraph text. Focus on
+          inputs is shown by applying the gold-deco haze.
+        </p>
+        <p>Placeholder text is grey, and input text is white in noir theme, then the input text is black in blanche theme.</p>
         <pre>
 				<code>
 &lt;label&gt;
@@ -263,13 +274,58 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
 				</code>
 			</pre>
 
-        <h3>Checkbox and label</h3>
+        <h3>Checkbox, Radio and Select</h3>
+        <p>To vertically align the form controls, wrap each one in a div with the class 'form-control'.</p>
+        <p>The checkbox and radio inputs override the browser defaults to maintain the noir theme. They make use of the 'action' nature of the <span style="color:var(--deco-gold)">--deco-gold</span> color to indicate selection.</p>
+        <form>
+        <div class="form-control">
+            <label>
+              Checkbox
+              <input type="checkbox" />
+            </label>
+            </div>
+
+          <div class="form-control">
+            <label>
+              Radio
+              <input type="radio" name="radio" />
+              <div class="radio">
+                <div></div>
+              </div>
+            </label>
+          </div>
+          <div class="form-control">
+            <label>
+              Select
+              <select>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </label>
+            </div>
+          </form>
         <pre>
 				<code>
-&lt;label class=&quot;control-checkbox&quot;&gt;One
+&lt;div class=&quot;form-control&quot;&gt;
+&#x9;&lt;label&gt;
 &#x9;&lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;
-&#x9;&lt;span&gt;&lt;/span&gt;
 &lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;form-control&quot;&gt;
+&#x9;&lt;label&gt;
+&#x9;&lt;input type=&quot;radio&quot; name=&quot;radio&quot;&gt;
+&#x9;&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;form-control&quot;&gt;
+&#x9;&lt;label&gt;
+&#x9;&lt;select&gt;
+&#x9;&lt;option&gt;Option 1&lt;/option&gt;
+&#x9;&lt;option&gt;Option 2&lt;/option&gt;
+&#x9;&lt;/select&gt;
+&#x9;&lt;/label&gt;
+&lt;/div&gt;
 				</code>
 						</pre>
       </section>
@@ -364,6 +420,7 @@ href=&quot;#&quot;&gt;links&lt;/a&gt; to show off their styles in context.&lt;/p
       <!-- Footer Styles -->
       <section id="footers">
         <h2>Page Footer</h2>
+        <p>The footer is a simple grid with padding between the three columns.</p>
         <footer>
         <ul>
         <li><h3>Content</h3></li>

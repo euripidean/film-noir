@@ -111,6 +111,7 @@ p {
   font-size: 1.25rem;
   line-height: 1.5;
   padding: $default-spacing;
+  padding-bottom: 0;
 }
 
 .center {
@@ -277,11 +278,11 @@ form {
   padding: $default-spacing;
 }
 
-form .no-border {
+form.no-border {
   padding: $default-spacing;
+  background: none;
 }
 
-// center the form submit button
 form button {
   margin: 0 auto;
   display: block;
@@ -302,34 +303,69 @@ textarea {
   box-shadow: 0 0 10px 0 var(--shade-4);
 }
 
-// Remove default browser styles
-form input[type="checkbox"],
-form input[type="radio"] {
-  display: none;
-}
-
-.checkbox::before {
-  content: "";
-  display: inline-block;
-  font-size: 1.5rem;
-  border: 1px solid var(--text);
-  margin-right: $default-spacing;
-}
-
-// checked checkboxes and radio buttons
-form input[type="checkbox"]:checked,
-form input[type="radio"]:checked {
-  background: var(--deco-gold);
-}
-
-form input:focus,
-textarea:focus {
-  border: 1px solid var(--deco-gold);
-}
-
 form label {
   font-size: 1.5rem;
   margin: $default-spacing 0;
+}
+
+.form-control label {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-left: $default-spacing;
+  appearance: none; // Remove default browser styling
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--text);
+  border: 1px solid var(--background);
+  box-shadow: 0 0 10px 0 var(--shade-4);
+}
+
+input[type="checkbox"] {
+  outline: none;
+  position: relative;
+  &:checked {
+    background: var(--deco-gold);
+    border: 1px solid var(--deco-gold);
+  }
+}
+
+input[type="checkbox"] {
+  &:checked::after {
+    content: "\2717"; // Unicode for checkmark
+    position: absolute;
+    color: var(--text);
+    font-size: 2rem;
+    top: -0.25rem;
+    left: 0.15rem;
+  }
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+  &:checked {
+    background: var(--deco-gold);
+    border: 1px solid var(--deco-gold);
+  }
+}
+
+select {
+  margin-left: $default-spacing;
+  width: 50%;
+  padding: $default-spacing;
+  border: 1px solid var(--text);
+  background: var(--background);
+  color: var(--text);
+  font-family: $default-font-family;
+  font-size: 1.25rem;
+  outline: none;
+  box-shadow: 0 0 10px 0 var(--shade-4);
+  &:focus {
+    border: 1px solid var(--deco-gold);
+  }
 }
 
 footer {
