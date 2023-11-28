@@ -11,7 +11,23 @@
 For the full effect, it's recommended that you download and import the following fonts:
 **Noir Medium** and **Noir Regular** by Sandy from Cufonfonts: **https://www.cufonfonts.com/font/noir**
 
-## Key style points:
+To use film-noir in your project:
+```
+<head>
+...
+<link rel="stylesheet" href="./styles/film-base.css" />
+    <link rel="stylesheet" href="./styles/film-noir.css" id="noir-theme" />
+    <link
+      rel="stylesheet"
+      href="./styles/film-blanche.css"
+      id="blanche-theme"
+      disabled
+    />
+...
+
+```
+
+## Key style points
 **Tags supported**
 ```
 body, html
