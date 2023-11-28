@@ -24,6 +24,7 @@ To use film-noir in your project:
       disabled
     />
 ...
+</head>
 
 ```
 
