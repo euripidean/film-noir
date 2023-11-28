@@ -2,7 +2,7 @@
 [School Assignment] As part of my Advanced Web Design class, I present a film noir CSS framework.
 
 **Written using Sass, this CSS Framework consists of:**
-- film-base.css
+- film-base.css - all base layout styles
 - film-noir.css - dark theme
 - film-blanche.css - light theme
 
